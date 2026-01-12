@@ -1,2 +1,2 @@
-## my personal webpage
-
+craftorsullen.art
+amandushka.com
