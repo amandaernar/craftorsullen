@@ -10,6 +10,18 @@ body {
   margin-top: 5rem;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ff00b7;
+}
+
 main {
   width: 100%;
   max-width: 50rem;
@@ -168,6 +180,8 @@ video {
 
 pre {
   border: 1px white;
+  color: #61cf5a;
+  font-family: 'Lucida Console', 'Terminal', monospace;
   padding: 1.5rem;
   overflow-x: auto;
 }
