@@ -209,6 +209,10 @@ h1 {
   font-weight: 200;
 }
 
+.return-signal {
+  padding-top: 4rem;
+}
+
 @keyframes lowTaperFade {
   0% {
     opacity: 0;
