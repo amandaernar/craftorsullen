@@ -21,11 +21,11 @@
       </section>
 
       <section id='intro'>
-        <header>
+        <header class='section'>
           <h1>Interleukin 1&beta;</h1>
         </header>
 
-        <nav>
+        <nav class='section'>
           <ul>
             <li>
               <a href='index.html'>cytokine home</a>
@@ -43,12 +43,12 @@
       </section>
 
       <section id='content'>
-        <article class='overview'>
+        <article class='section overview'>
           <h2>Overview &#128444;</h2>
           <p>The objective was to create a molecular dynamics (MD) simulation of Interleukin-1&beta;, a protein largely involved in human inflammation. The protein was observed in a virtual environment meant to mimic human body conditions.</p>
         </article>
 
-        <article class='methodology'>
+        <article class='section methodology'>
           <h2>Methodology &#128640;</h2>
           <p>The simulation was built using the GROMACS 2024 engine and the CHARMM36m force field. I also used the TIP3P water model (the standard 3-site model). After I processed the initial structure derived from PDB, I placed the protein in a solvated box (a cube-shaped box filled with water molecules) with a 1.0 nm buffer. The system was then neutralized through the addition of sodium and chloride ions. The energy of the system was equilibriated via NVT and NPT to allow it to reach a temperature of 310 Kelvin (human body temperature) and a pressure of 1.0133 bar (1 atm) through a time step of 2 femtoseconds. I used a cut-off scheme of Verlet and PME for electrostatics to make sure all forces are accounted for.</p>
         </article>
@@ -56,21 +56,21 @@
         <article class='results'>
           <h2>Results&#128202;</h2>
           <div class="gallery-container">
-              <div class="gallery-item">
+              <div class="section gallery-item">
                 <p>1)</p>
                 <img src="src/cartoon.gif" alt="Cartoon Animation">
                 <p>Color-coded by secondary structure.</p>
                 <p>Styled as a "cartoon."</p>
               </div>
 
-              <div class="gallery-item">
+              <div class="section gallery-item">
                 <p>2)</p>
                 <img src="src/cpk.gif" alt="CPK Animation">
                 <p>Color-coded by elements.</p>
                 <p>Styled as an aggregate of atomic bonds.</p>
               </div>
 
-              <div class="gallery-item">
+              <div class="section gallery-item">
                 <p>3)</p>
                 <img src="src/cpk-resname.gif" alt="CPK Resname Animation">
                 <p>Color-coded by residues present.</p>
@@ -78,14 +78,14 @@
               </div>
           </div>
 
-          <div class='data'>
+          <div class='section data'>
             <p>4)</p>
-            <img src='src/rmsd-sc.png' alt='Root Mean Square Deviation (RMSD) in nanometers plotted against time in picoseconds.'>
+            <img class='section' src='src/rmsd-sc.png' alt='Root Mean Square Deviation (RMSD) in nanometers plotted against time in picoseconds.'>
             <p>RMSD (Nanometers) plotted against Time (Picoseconds), summarizing the IL-1&beta; protein's movements/displacement during simulation. Plotted curve shows sharp initial rise as protein relaxes from its crystal structure. RMSD oscillates as it plateaus between 0.10 nm and 0.13 nm.</p>
           </div>
         </article>
 
-        <article class='discussion'>
+        <article class='discussion section'>
           <h2>Discussion &#128269;</h2>
           <p>The Root Mean Square Deviation (RMSD) of this simulation reached equilibrium at approximately 0.10 nm within the first 100 picoseconds. This indicates that the protein successfully equilibrated and did not unfold.</p>
           <p>The VMD visualizations show that the 12 &beta; strands remained intact. The protein's movement was limited only to surface loops, so the simulation was successful.</p>
@@ -96,8 +96,8 @@
       <section>
         <article class='command-section'>
           <h2>Command History &#128187;</h2>
-                <h3>Solvation</h3>
-                <pre><code>
+                <h3 class='section'>Solvation</h3>
+                <pre class='section'><code>
                 # generate topology and generate water box
             gmx pdb2gmx -f il1b.pdb -o il1b_processed.gro -water tip3p
             gmx editconf -f il1b_processed.gro -o il1b_newbox.gro -c -d 1.0 -bt cubic
@@ -107,8 +107,8 @@
             gmx solvate -cp il1b_newbox.gro -cs spc216.gro -o il1b_solv.gro -p topol.top
             gmx genion -s ions.tpr -o il1b_solv_ions.gro -p topol.top -pname NA -nname CL -neutral</code></pre>
 
-                <h3>Energy Minimization</h3>
-                <pre><code>
+                <h3 class='section'>Energy Minimization</h3>
+                <pre class='section'><code>
             gmx grompp -f em.mdp -c il1b_solv_ions.gro -p topol.top -o em.tpr
             gmx mdrun -v -deffnm em
 
@@ -118,8 +118,8 @@
             gmx grompp -f npt.mdp -c nvt.gro -t nvt.cpt -p topol.top -o npt.tpr
             gmx mdrun -deffnm npt</code></pre>
 
-                <h3>Production/Analysis</h3>
-                <pre><code>
+                <h3 class='section'>Production/Analysis</h3>
+                <pre class='section'><code>
             gmx grompp -f md.mdp -c npt.gro -t npt.cpt -p topol.top -o md_0_1.tpr
             gmx mdrun -deffnm md_0_1
 
@@ -130,7 +130,7 @@
         </article>
       </section>
 
-      <section class='return-signal'>
+      <section class='section'>
         <h2>Thanks for reading!</h2>
         <p>Feel free to explore the rest of this site.</p>
         <a href='index.html'>&#128279; Cytokine Home</a><br>
@@ -138,5 +138,7 @@
       </section>
     </main>
 
+    <!-- javascript shi lol -->
+    <script src='../script.js'></script>
   </body>
 </html>

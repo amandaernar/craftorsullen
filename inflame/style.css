@@ -6,8 +6,6 @@ body {
   display: flex;
   justify-content: center;
   min-height: 100vh;
-  margin-bottom: 20rem;
-  margin-top: 5rem;
 }
 
 ::-webkit-scrollbar {
@@ -222,3 +220,48 @@ h1 {
     opacity: 1;
   }
 }
+
+/* low taper fade */
+@keyframes lowTaperFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+    blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    blur(4px);
+  }
+}
+
+.section {
+  opacity: 0;
+}
+
+.seen {
+  animation: lowTaperFade 0.67s ease-out forwards;
+}
+
+#intro.seen .main-title { animation-delay: 0.1s; }
+#intro.seen img { animation-delay: 0.3s; }
+#intro.seen nav { animation-delay: 0.5s; }
+
+/* nav animation */
+.section ul li {
+  opacity: 0;
+  transform: translateY(10px);
+  will-change: opacity, transform;
+}
+
+.seen ul li {
+  animation: lowTaperFade 0.67s ease-out forwards;
+}
+
+.seen ul li:nth-child(1) { animation-delay: 0.1s; }
+.seen ul li:nth-child(2) { animation-delay: 0.2s; }
+.seen ul li:nth-child(3) { animation-delay: 0.3s; }
+.seen ul li:nth-child(4) { animation-delay: 0.4s; }
+.seen ul li:nth-child(5) { animation-delay: 0.5s; }
+.seen ul li:nth-child(6) { animation-delay: 0.6s; }
+.seen ul li:nth-child(7) { animation-delay: 0.7s; }
